@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Portfolio</title>
+  <style>
+    /* General Reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    header nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: flex-end;
+      padding: 10px 20px;
+    }
+
+    header nav ul li {
+      margin: 0 10px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    #content {
+      position: relative;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      transition: background-color 0.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 80px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .hero h1 span.letter {
+      display: inline-block;
+      transform-origin: top center;
+      animation: swing 2s ease-in-out infinite;
+    }
+
+    /* Swinging animation */
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(15deg); }
+      50% { transform: rotate(-15deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .hero p {
+      font-size: 28px;
+      font-family: 'Patrick Hand', cursive;
+      animation: wave 2s infinite ease-in-out;
+      margin: 20px 0;
+    }
+
+    /* Waving animation */
+    @keyframes wave {
+      0% { transform: rotate(-2deg); }
+      50% { transform: rotate(2deg); }
+      100% { transform: rotate(-2deg); }
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #333;
+      border: 2px solid #333;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .button:hover {
+      background-color: #333;
+      color: white;
+      transition: 0.3s ease;
+    }
+
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .dots .dot {
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      border-radius: 50%;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .dots .dot.active {
+      opacity: 1;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#work">Work & Play</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main id="content" style="background-color: #FFD700;">
+    <div class="hero"><p>Hi</p>
+      <h1>
+        <span class="letter">K</span>
+        <span class="letter">E</span>
+        <span class="letter">L</span> 
+        <span class="letter">V</span>
+        <span class="letter">I</span> 
+        <span class="letter">N</span>
+        <span class="letter">E</span>
+      </h1>
+      <p>I'M A DESIGN TECHNOLOGIST CURRENTLY WORKING ONLINE <br> @ EVERYWHERE</p>
+      <a href="#learn-more" class="button">Learn More</a>
+    </div>
+    <div class="dots" id="dots"></div>
+  </main>
+
+  <script>
+    const pages = [
+      {
+        backgroundColor: '#FFD700',
+        title: `<h1><p>Hi</p>
+                  <span class="letter">I</span>
+                  <span class="letter">M,</span>
+                  <span class="letter">K</span>
+                  <span class="letter">E</span>
+                  <span class="letter">L</span> 
+                  <span class="letter">V</span>
+                  <span class="letter">I</span> 
+                  <span class="letter">N</span>
+                  <span class="letter">E</span>
+                </h1>
+                <p>I'M A DESIGN TECHNOLOGIST CURRENTLY WORKING ONLINE <br> @ EVERYWHERE</p>`
+      },
+      {
+        backgroundColor: '#00CED1',
+        title: `<h1>
+                  <span class="letter">C</span>
+                  <span class="letter">R</span>
+                  <span class="letter">E</span> 
+                  <span class="letter">A</span>
+                  <span class="letter">T</span>
+                  <span class="letter">I</span>
+                  <span class="letter">V</span>
+                  <span class="letter">E</span>
+                  <span class="letter"> </span>
+                  <span class="letter">N</span>
+                  <span class="letter">E</span>
+                  <span class="letter">T</span>
+                  <span class="letter">W</span>
+                  <span class="letter">O</span>
+                  <span class="letter">R</span>
+                  <span class="letter">K</span>
+                </h1>
+                <p>I LOVE TO COLLABORATE. I'M CURRENTLY LOOKING FOR OTHER CREATIVE MINDS TO WORK, GROW AND NETWORK. GET IN TOUCH!</p>`
+      },
+      {
+        backgroundColor: '#FF6347',
+        title: `<h1>
+                  <span class="letter">I</span>
+                  <span class="letter">N</span>
+                  <span class="letter">S</span>
+                  <span class="letter">P</span>
+                  <span class="letter">I</span>
+                  <span class="letter">R</span>
+                  <span class="letter">E</span>
+                </h1>
+                <p>SEEKING INSPIRATION FROM EVERYDAY EXPERIENCES AND SHARING IT WITH THE WORLD!</p>`
+      },
+      {
+        backgroundColor: '#4682B4',
+        title: `<h1>
+                  <span class="letter">D</span>
+                  <span class="letter">E</span>
+                  <span class="letter">S</span> 
+                  <span class="letter">I</span>
+                  <span class="letter">G</span>
+                  <span class="letter">N</span>
+                </h1>
+                <p>CRAFTING BEAUTIFUL AND FUNCTIONAL WEB EXPERIENCES FOR MODERN USERS.</p>`
+      },
+      {
+        backgroundColor: '#32CD32',
+        title: `<h1>
+                  <span class="letter">C</span>
+                  <span class="letter">O</span>
+                  <span class="letter">D</span>
+                  <span class="letter">E</span>
+                </h1>
+                <p>WRITING ELEGANT AND EFFICIENT CODE TO BRING IDEAS TO LIFE.</p>`
+      },
+      {
+        backgroundColor: '#9370DB',
+        title: `<h1>
+                  <span class="letter">W</span>
+                  <span class="letter">E</span>
+                  <span class="letter">B</span> 
+                  <span class="letter">D</span>
+                  <span class="letter">E</span>
+                  <span class="letter">V</span>
+                  <span class="letter">E</span>
+                  <span class="letter">L</span>
+                  <span class="letter">O</span>
+                  <span class="letter">P</span>
+                  <span class="letter">M</span>
+                  <span class="letter">E</span>
+                  <span class="letter">N</span>
+                  <span class="letter">T</span>
+                </h1>
+                <p>BUILDING RESPONSIVE, INTERACTIVE, AND ENGAGING DIGITAL EXPERIENCES.</p>`
+      }
+    ];
+
+    let currentPage = 0;
+
+    const content = document.getElementById('content');
+    const dotsContainer = document.getElementById('dots');
+
+    function updatePage(index) {
+      content.style.backgroundColor = pages[index].backgroundColor;
+      content.innerHTML = `
+        <div class="hero">
+          ${pages[index].title}
+          <a href="#learn-more" class="button">Learn More</a>
+        </div>
+        <div class="dots" id="dots">${generateDots(index)}</div>
+      `;
+    }
+
+    function generateDots(activeIndex) {
+      return pages.map((_, index) =>
+        `<span class="dot ${index === activeIndex ? 'active' : ''}" data-index="${index}"></span>`
+      ).join('');
+    }
+
+    function setAutoChange() {
+      setInterval(() => {
+        currentPage = (currentPage + 1) % pages.length;
+        updatePage(currentPage);
+      }, 10000);
+    }
+
+    document.addEventListener('click', (e) => {
+      if (e.target.classList.contains('dot')) {
+        currentPage = parseInt(e.target.dataset.index, 10);
+        updatePage(currentPage);
+      }
+    });
+
+    updatePage(currentPage);
+    setAutoChange();
+  </script>
+</body>
+</html>
