@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interactive Portfolio</title>
+  <title>Responsive Interactive Portfolio</title>
   <style>
     /* General Reset */
     body, html {
@@ -47,7 +47,7 @@
     }
 
     .hero h1 {
-      font-size: 80px;
+      font-size: 60px;
       font-weight: bold;
       margin: 0;
     }
@@ -68,7 +68,7 @@
     }
 
     .hero p {
-      font-size: 28px;
+      font-size: 20px;
       font-family: 'Patrick Hand', cursive;
       animation: wave 2s infinite ease-in-out;
       margin: 20px 0;
@@ -119,6 +119,37 @@
     .dots .dot.active {
       opacity: 1;
     }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+      .hero p {
+        font-size: 18px;
+      }
+      .button {
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+      .hero p {
+        font-size: 16px;
+      }
+      .button {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .dots .dot {
+        width: 12px;
+        height: 12px;
+      }
+    }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
@@ -136,7 +167,7 @@
     </nav>
   </header>
   <main id="content" style="background-color: #FFD700;">
-    <div class="hero"><p>Hi</p>
+    <div class="hero">
       <h1>
         <span class="letter">K</span>
         <span class="letter">E</span>
@@ -156,9 +187,7 @@
     const pages = [
       {
         backgroundColor: '#FFD700',
-        title: `<h1><p>Hi</p>
-                  <span class="letter">I</span>
-                  <span class="letter">M,</span>
+        title: `<h1>
                   <span class="letter">K</span>
                   <span class="letter">E</span>
                   <span class="letter">L</span> 
@@ -180,71 +209,8 @@
                   <span class="letter">I</span>
                   <span class="letter">V</span>
                   <span class="letter">E</span>
-                  <span class="letter"> </span>
-                  <span class="letter">N</span>
-                  <span class="letter">E</span>
-                  <span class="letter">T</span>
-                  <span class="letter">W</span>
-                  <span class="letter">O</span>
-                  <span class="letter">R</span>
-                  <span class="letter">K</span>
                 </h1>
-                <p>I LOVE TO COLLABORATE. I'M CURRENTLY LOOKING FOR OTHER CREATIVE MINDS TO WORK, GROW AND NETWORK. GET IN TOUCH!</p>`
-      },
-      {
-        backgroundColor: '#FF6347',
-        title: `<h1>
-                  <span class="letter">I</span>
-                  <span class="letter">N</span>
-                  <span class="letter">S</span>
-                  <span class="letter">P</span>
-                  <span class="letter">I</span>
-                  <span class="letter">R</span>
-                  <span class="letter">E</span>
-                </h1>
-                <p>SEEKING INSPIRATION FROM EVERYDAY EXPERIENCES AND SHARING IT WITH THE WORLD!</p>`
-      },
-      {
-        backgroundColor: '#4682B4',
-        title: `<h1>
-                  <span class="letter">D</span>
-                  <span class="letter">E</span>
-                  <span class="letter">S</span> 
-                  <span class="letter">I</span>
-                  <span class="letter">G</span>
-                  <span class="letter">N</span>
-                </h1>
-                <p>CRAFTING BEAUTIFUL AND FUNCTIONAL WEB EXPERIENCES FOR MODERN USERS.</p>`
-      },
-      {
-        backgroundColor: '#32CD32',
-        title: `<h1>
-                  <span class="letter">C</span>
-                  <span class="letter">O</span>
-                  <span class="letter">D</span>
-                  <span class="letter">E</span>
-                </h1>
-                <p>WRITING ELEGANT AND EFFICIENT CODE TO BRING IDEAS TO LIFE.</p>`
-      },
-      {
-        backgroundColor: '#9370DB',
-        title: `<h1>
-                  <span class="letter">W</span>
-                  <span class="letter">E</span>
-                  <span class="letter">B</span> 
-                  <span class="letter">D</span>
-                  <span class="letter">E</span>
-                  <span class="letter">V</span>
-                  <span class="letter">E</span>
-                  <span class="letter">L</span>
-                  <span class="letter">O</span>
-                  <span class="letter">P</span>
-                  <span class="letter">M</span>
-                  <span class="letter">E</span>
-                  <span class="letter">N</span>
-                  <span class="letter">T</span>
-                </h1>
-                <p>BUILDING RESPONSIVE, INTERACTIVE, AND ENGAGING DIGITAL EXPERIENCES.</p>`
+                <p>I LOVE TO COLLABORATE. LET'S GROW AND NETWORK TOGETHER!</p>`
       }
     ];
 
